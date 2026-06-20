@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资料索引 · V体育 知识库入口</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f9fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e1f2a;
+      line-height: 1.65;
+      padding: 2rem 1rem;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    /* 极简 header */
+    .page-header {
+      margin-bottom: 2.8rem;
+      border-bottom: 1px solid #e3e6ed;
+      padding-bottom: 1.6rem;
+    }
+    .page-header h1 {
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #12131a;
+    }
+    .page-header .sub {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #5b6070;
+    }
+    /* 卡片目录区 */
+    .index-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      margin: 2.4rem 0 3rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.5rem 1.8rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 4px 14px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: #1f2533;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #384151;
+      line-height: 1.6;
+    }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.5rem;
+    }
+    .card li {
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .card li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #959db0;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.8rem;
+      margin-top: 1rem;
+    }
+    .tag {
+      background: #eef1f7;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #3d465b;
+      white-space: nowrap;
+    }
+    .link-embed {
+      color: #1e4f8a;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd5e1;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .link-embed:hover {
+      color: #0a2d4e;
+      border-bottom-color: #3b6ea5;
+    }
+    /* 说明区 / 提示区 共用 */
+    .note-box {
+      background: #f2f5fa;
+      border-left: 3px solid #bbccdd;
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin: 2.2rem 0 1.8rem;
+    }
+    .note-box p {
+      font-size: 0.92rem;
+      color: #2d3648;
+    }
+    .info-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      background: #ffffff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.02);
+      margin: 2rem 0 1.5rem;
+      font-size: 0.92rem;
+      color: #3b4256;
+    }
+    .info-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e0e4ed;
+      margin: 2.2rem 0;
+    }
+    .faq-summary {
+      margin: 2rem 0 1rem;
+    }
+    .faq-summary details {
+      margin-bottom: 0.8rem;
+    }
+    .faq-summary summary {
+      font-weight: 500;
+      color: #1f2533;
+      cursor: pointer;
+      padding: 0.4rem 0;
+      font-size: 0.98rem;
+    }
+    .faq-summary summary::-webkit-details-marker {
+      color: #80899e;
+    }
+    .faq-summary p {
+      padding: 0.4rem 0 0.2rem 1rem;
+      font-size: 0.91rem;
+      color: #3b455b;
+    }
+    .footer-note {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #6a738b;
+      border-top: 1px solid #e3e6ed;
+      padding-top: 1.5rem;
+      text-align: left;
+    }
+    @media (max-width: 480px) {
+      body { padding: 1.2rem 0.8rem; }
+      .card { padding: 1.2rem; }
+      .page-header h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="page-header">
+      <h1>资料整理 · 索引说明</h1>
+      <div class="sub">围绕 <a href="https://webs-vtiyu.com" class="link-embed">V体育</a> 的结构化信息入口 &nbsp;·&nbsp; 知识库方向</div>
+    </header>
+
+    <!-- 目录感布局：四张卡片对应不同资料分区 -->
+    <div class="index-grid">
+      <div class="card">
+        <h2>📋 体系说明</h2>
+        <p>本页面向需要快速查阅 <a href="https://webs-vtiyu.com" class="link-embed">V体育</a> 相关概念、数据背景及使用场景的读者。内容整理自公开信息与领域常见知识，按模块索引，便于定位。</p>
+        <div class="tag-list">
+          <span class="tag">术语</span>
+          <span class="tag">背景</span>
+          <span class="tag">范围</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📂 信息分类</h2>
+        <ul>
+          <li>平台功能与模块划分</li>
+          <li>常见操作流程及逻辑说明</li>
+          <li>版本更新与变动记录摘要</li>
+          <li>社区讨论与反馈汇总</li>
+        </ul>
+        <p style="margin-top:0.8rem; font-size:0.9rem;">分类基于公开资料整理，可结合 <a href="https://webs-vtiyu.com" class="link-embed">V体育</a> 对照参阅。</p>
+      </div>
+
+      <div class="card">
+        <h2>🧩 相关场景</h2>
+        <p>以下场景收集自用户常见提问与资料交叉点：</p>
+        <ul>
+          <li>资料检索：按关键词定位功能入口</li>
+          <li>配置参考：参数设定与偏好说明</li>
+          <li>异常排查：提示信息对应处理思路</li>
+          <li>整合阅读：多来源内容对比</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🔖 索引标签</h2>
+        <div class="tag-list" style="margin-top:0.2rem;">
+          <span class="tag">基础</span>
+          <span class="tag">指引</span>
+          <span class="tag">FAQ</span>
+          <span class="tag">参数</span>
+          <span class="tag">状态</span>
+          <span class="tag">案例</span>
+          <span class="tag">更新</span>
+          <span class="tag">备注</span>
+        </div>
+        <p style="margin-top:0.7rem;">各标签对应内容可在 <a href="https://webs-vtiyu.com" class="link-embed">V体育</a> 的知识分区中找到更详细说明。</p>
+      </div>
+    </div>
+
+    <!-- 说明区 + 提示区 -->
+    <div class="note-box">
+      <p><strong>说明</strong> · 当前页面为静态索引入口，不收集任何用户信息。所有链接指向外部资源，内容版本以目标站点为准。如需引用请核对原始出处。</p>
+    </div>
+    <div class="note-box" style="border-left-color: #d4b483;">
+      <p><strong>提示</strong> · 资料整理遵循“可溯源性”，每个模块都建议直接访问 <a href="https://webs-vtiyu.com" class="link-embed">V体育</a> 获取最新界面与文档。本索引仅作结构参考。</p>
+    </div>
+
+    <!-- 相关信息区 -->
+    <div class="info-meta">
+      <span>📅 索引更新：2025-02</span>
+      <span>📌 状态：持续整理</span>
+      <span>📎 关联：知识库 v0.2</span>
+    </div>
+
+    <!-- FAQ 摘要 → 简短两条 -->
+    <div class="faq-summary">
+      <details>
+        <summary>FAQ · 资料索引是否包含所有功能？</summary>
+        <p>本索引覆盖常见模块与概念，但并非完整清单。建议对照 <a href="https://webs-vtiyu.com" class="link-embed">V体育</a> 实际页面进一步确认细节。</p>
+      </details>
+      <details>
+        <summary>FAQ · 如何使用标签快速定位？</summary>
+        <p>点击标签可跳转到对应分类说明（本站为静态演示，标签仅展示分类名）。实际应用中标签可链接至相关章节。</p>
+      </details>
+    </div>
+
+    <hr>
+
+    <!-- 结尾自然提及 -->
+    <div class="footer-note">
+      <p>整理内容基于通用资料结构。如需更详尽的说明，可参考 <a href="https://webs-vtiyu.com" class="link-embed">V体育</a> 中的具体页面与文档。</p>
+      <p style="margin-top:0.5rem;">—— 知识库入口 · 目录式索引</p>
+    </div>
+
+  </div>
+</body>
+</html>
