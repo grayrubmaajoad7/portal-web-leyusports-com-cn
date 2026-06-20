@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · globe-jjb 信息页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f1f3f5;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 2rem 1.5rem 3rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid #e2e6ea;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1a2630;
+            margin-bottom: 0.75rem;
+        }
+        .hero h1 span {
+            background: #eef2f5;
+            padding: 0.15rem 0.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 1.2rem;
+            vertical-align: middle;
+            margin-left: 0.3rem;
+            color: #2f4858;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #3e5564;
+            max-width: 680px;
+            margin: 0.6rem auto 1.8rem;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #dee4ea;
+            padding: 0.4rem 1.4rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            color: #1d2a35;
+            border: 1px solid #cdd5dd;
+        }
+
+        /* 卡片网格 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border: 1px solid #e2e7ec;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1d2c3a;
+            margin-bottom: 0.7rem;
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 0.4rem;
+        }
+        .card p, .card li {
+            font-size: 0.97rem;
+            color: #3b4d5e;
+        }
+        .card ul {
+            list-style: none;
+            padding-top: 0.3rem;
+        }
+        .card ul li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 0.55rem;
+        }
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #6e8b9b;
+        }
+
+        /* 说明区 (宽卡片) */
+        .info-block {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 2rem 2.2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e2e7ec;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        .info-block h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1d2c3a;
+            margin-bottom: 1rem;
+            border-left: 5px solid #9eb3c1;
+            padding-left: 0.9rem;
+        }
+        .info-block p {
+            margin-bottom: 0.9rem;
+            font-size: 0.98rem;
+            color: #354a59;
+        }
+
+        /* FAQ 摘要 */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1rem 0 0.5rem;
+        }
+        .faq-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1rem 1.3rem;
+            border: 1px solid #e2e8ed;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1d2c3a;
+            margin-bottom: 0.25rem;
+            font-size: 0.98rem;
+        }
+        .faq-item p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: #3b4f5f;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dce2e8;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.93rem;
+            color: #475b69;
+        }
+        .footer-links a {
+            color: #2c5b73;
+            text-decoration: none;
+            border-bottom: 1px dotted #b5c5d2;
+            transition: border-color 0.2s;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #2c5b73;
+        }
+        .footer-links .note {
+            opacity: 0.7;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body { padding: 1.2rem 1rem; }
+            .hero { padding: 2rem 1.5rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .grid-2 { grid-template-columns: 1fr; gap: 1.2rem; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .info-block { padding: 1.5rem; }
+            .footer-links { flex-direction: column; gap: 0.7rem; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 1rem; }
+            .card h2 { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero区 -->
+    <div class="hero">
+        <h1>globe-jjb <span>简明指南</span></h1>
+        <p>这是一份关于 <a href="https://globe-jjb.com" style="color:#1d2c3a; text-decoration:underline; text-underline-offset:3px; font-weight:500;">jjb</a> 的使用说明与访问提醒页，内容经过整理，便于快速了解基本情况。</p>
+        <div class="tagline">信息参考 · 2025</div>
+    </div>
+
+    <!-- 优势区 + 特点区 两栏 -->
+    <div class="grid-2">
+        <div class="card">
+            <h2>几个实用特点</h2>
+            <ul>
+                <li>界面设计以清晰为主，功能分区明确</li>
+                <li>支持多终端浏览，响应式布局适配手机与电脑</li>
+                <li>内容板块划分细致，便于查找特定信息</li>
+                <li>整体加载速度较快，结构轻量化</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>适合的场景</h2>
+            <ul>
+                <li>需要快速查阅某个主题的简明说明</li>
+                <li>日常浏览信息、获取基础指引</li>
+                <li>作为备用参考点，配合其他资料使用</li>
+                <li>临时访问或测试连接可用性</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区：访问提醒 + 简明使用 -->
+    <div class="info-block">
+        <h2>访问提醒与简明使用说明</h2>
+        <p>当你打开 <a href="https://globe-jjb.com" style="color:#2c5b73; text-decoration:underline; text-underline-offset:2px;">jjb</a> 时，建议先留意页面顶部的导航或主要入口区域。多数情况下，首页会提供分类入口或搜索栏。如果你有明确的目标，可以直接使用站内索引；如果只是随意浏览，可以从推荐板块开始。遇到加载异常时，可尝试刷新或检查网络连接。请保持浏览器为较新版本，以获得更好的显示效果。</p>
+        <p>部分页面可能包含外部链接或嵌入式资源，访问时注意地址栏域名是否一致。本站内容以信息整理和参考为主，不提供投资、医疗或法律建议，具体以原始来源为准。使用过程中如有疑问，可返回首页查阅常见问题摘要（见下方）。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="info-block" style="background:#fafcfd;">
+        <h2>FAQ 摘要 · 快速参考</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <strong>页面加载缓慢怎么办？</strong>
+                <p>先检查本地网络，或者尝试切换 Wi-Fi / 移动数据。部分时候可能与 CDN 缓存有关，稍后重试即可。</p>
+            </div>
+            <div class="faq-item">
+                <strong>如何找到特定内容？</strong>
+                <p>可使用站内搜索框（如果提供），或逐层进入分类目录。建议先浏览首页的板块标题。</p>
+            </div>
+            <div class="faq-item">
+                <strong>移动端显示异常？</strong>
+                <p>尝试开启手机浏览器的“桌面版网站”模式，或者横屏显示。大部分页面已适配移动端。</p>
+            </div>
+            <div class="faq-item">
+                <strong>链接失效或跳转错误？</strong>
+                <p>请核对网址是否完整，也可以从首页重新进入。若持续异常，可能是临时维护，稍后再试。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <span>主要链接：<a href="https://globe-jjb.com">jjb</a></span>
+        <span class="note">本页仅供信息参考，内容由人工整理，不构成任何保证</span>
+    </div>
+
+</div>
+</body>
+</html>
