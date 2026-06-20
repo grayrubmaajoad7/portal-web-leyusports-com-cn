@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ued体育 · 运动与信息交汇地</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf8f5;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Times New Roman", serif;
+      color: #2c2c2c;
+      line-height: 1.7;
+      padding: 0 1rem 3rem;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.2rem 0 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2ddd6;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      color: #3f3a36;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      color: #5b554e;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #b3a69c;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin-top: 3rem;
+      padding: 2rem 0 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #2b2622;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #6b625a;
+      margin-top: 0.6rem;
+      border-left: 3px solid #cdc1b4;
+      padding-left: 1.2rem;
+    }
+
+    .intro-text {
+      margin: 2.5rem 0;
+      font-size: 1.05rem;
+    }
+
+    .intro-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .highlight-box {
+      background: #f1ece6;
+      padding: 1.6rem 2rem;
+      border-radius: 12px;
+      margin: 2rem 0 2.8rem;
+      border-left: 5px solid #ae9f8e;
+      font-size: 0.98rem;
+    }
+
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .scene-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e7e1da;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(60, 50, 40, 0.06);
+    }
+
+    .scene-card h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #3d3731;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #5a524b;
+    }
+
+    .faq-summary {
+      background: #f6f2ed;
+      border-radius: 18px;
+      padding: 2rem 2rem 1.5rem;
+      margin: 3rem 0 2.5rem;
+    }
+
+    .faq-summary details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px dashed #d8cfc5;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-summary details:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-summary summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #3f3731;
+      font-size: 1rem;
+      padding: 0.2rem 0;
+    }
+
+    .faq-summary summary::marker {
+      color: #9b8b7b;
+    }
+
+    .faq-summary .answer {
+      font-size: 0.95rem;
+      color: #5f5650;
+      margin-top: 0.5rem;
+      padding-left: 0.3rem;
+    }
+
+    .footnote {
+      border-top: 1px solid #e2ddd6;
+      padding-top: 1.8rem;
+      margin-top: 2.8rem;
+      font-size: 0.9rem;
+      color: #7b726a;
+      text-align: center;
+    }
+
+    .footnote a {
+      color: #4f463f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b9afa4;
+    }
+
+    .footnote a:hover {
+      text-decoration-color: #7b6b5d;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .highlight-box {
+        padding: 1.2rem 1.4rem;
+      }
+      .faq-summary {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <span class="nav-brand">uedsports · 信息场</span>
+      <div class="nav-links">
+        <a href="#">阅读</a>
+        <a href="#">场景</a>
+        <a href="#">笔记</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>从运动出发，理解一种聚合</h1>
+      <div class="sub">不止于赛事信息，更是内容与体验的交叉点</div>
+    </div>
+
+    <div class="intro-text">
+      <p>当一个词语被反复提及，它背后往往藏着更完整的脉络。我们谈论 <strong>ued体育</strong>，其实是在谈论一种以运动为媒介的信息流——它连接着赛况、社区、个人兴趣与日常节奏。与其说它是一个平台，不如说它是一扇观察体育文化如何被组织、分发与消费的窗口。</p>
+      <p>在这个视角下，<a href="https://webs-uedsports.com">ued体育</a> 所呈现的并非单一的门户，而是一种围绕运动内容展开的生态。它把分散的赛事数据、深度文章、用户互动揉合在一起，让人可以跟随自己的节奏去浏览、发现和讨论。</p>
+    </div>
+
+    <div class="highlight-box">
+      <strong>一点观察：</strong> 好的体育内容，往往不是最快的那条推送，而是能让你停下来多读两段的分析或随笔。在移动时代，如何平衡即时性与阅读深度，是所有运动类平台都在探索的课题。
+    </div>
+
+    <section>
+      <h2 style="font-weight: 400; font-size: 1.4rem; margin: 3rem 0 0.2rem; color:#2e2a26;">三个常见的场景</h2>
+      <p style="color: #6b625a; margin-bottom: 1.2rem; font-size: 0.95rem;">以下是一些日常中与运动内容相遇的片段</p>
+
+      <div class="scene-grid">
+        <div class="scene-card">
+          <h3>晨间速览</h3>
+          <p>打开页面，扫一眼昨夜的关键比分与简短复盘。不需要沉浸，只求在通勤路上快速了解动态。</p>
+        </div>
+        <div class="scene-card">
+          <h3>周末长阅读</h3>
+          <p>挑一篇球员访谈或战术演变分析，泡杯茶慢慢看。文章里偶尔穿插的动图与数据表，让理解更直观。</p>
+        </div>
+        <div class="scene-card">
+          <h3>话题讨论</h3>
+          <p>看完一场焦点战后，去评论区或相关文章下看看不同角度的观点。有时候，比起赛果，讨论本身更有意思。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="faq-summary">
+      <h3 style="font-weight: 500; margin-bottom: 1rem; font-size: 1.1rem; color: #2f2a26;">你可能想了解的事</h3>
+      <details>
+        <summary>「ued体育」提供哪些类型的运动内容？</summary>
+        <div class="answer">主要覆盖球类、格斗、田径等主流运动，包含赛程预告、实时比分、赛后分析以及相关的专栏文章。内容来源既有专业写手，也有社区贡献。</div>
+      </details>
+      <details>
+        <summary>内容更新频率如何？</summary>
+        <div class="answer">热门赛事期间基本保持实时跟踪，日常则有固定栏目每天更新。周末和重大比赛日前后，深度内容会相对集中一些。</div>
+      </details>
+      <details>
+        <summary>是否需要注册才能浏览？</summary>
+        <div class="answer">大部分内容可以直接阅读，部分互动功能（如评论、收藏）需要简单的账号注册。目前未发现强制付费墙。</div>
+      </details>
+    </div>
+
+    <div class="footnote">
+      <p>探索运动信息的更多切面，可以前往 <a href="https://webs-uedsports.com">ued体育</a> 自己感受。</p>
+      <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #91887f;">每种观察都值得被保留</p>
+    </div>
+  </div>
+</body>
+</html>
